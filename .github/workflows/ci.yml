@@ -1,4 +1,4 @@
-name: Robot Framework Reporter Demo 
+name: Robot Framework Reporter Demo
 
 on:
   push:
@@ -6,40 +6,40 @@ on:
       - main
   pull_request:
     branches:
-      - '*'
+      - "*"
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run tests
-      uses: joonvena/robotframework-docker-action@v1.0
-      with:
-        robot_tests_dir: Tests
-    - name: Store test report
-      uses: actions/upload-artifact@v1
-      if: always()
-      with:
-        name: reports
-        path: reports
-        
-  generate_report:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        uses: joonvena/robotframework-docker-action@v1.0
+        with:
+          robot_tests_dir: Tests
+      - name: Store test report
+        uses: actions/upload-artifact@v1
         if: always()
-        needs: [tests] 
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Download reports
-          uses: actions/download-artifact@v1
-          with:
-            name: reports
-        - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.3
-          with:
-            gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: reports
+          path: reports
+
+  generate_report:
+    if: always()
+    needs: [tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download reports
+        uses: actions/download-artifact@v1
+        with:
+          name: reports
+      - name: Send report to commit
+        uses: joonvena/robotframework-reporter-action@v2.3
+        with:
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
   # report:
-  #   if: always()
+  # if: always()
   #   needs: [test]
   #   runs-on: ubuntu-latest
   #   steps:
@@ -50,5 +50,5 @@ jobs:
   #       name: reports
   #   - name: Output report
   #     uses: joonvena/robotframework-reporter-action@v2
-      # with:
-      #   gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+  # with:
+  #   gh_access_token: ${{ secrets.GITHUB_TOKEN }}
