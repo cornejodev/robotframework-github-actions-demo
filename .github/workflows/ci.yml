@@ -1,9 +1,6 @@
 name: Robot Framework Reporter Demo 
 
-on:
-  pull_request:
-  push:
-    branches: [ main ]
+on: [push]
 
 jobs:
   test:
