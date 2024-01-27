@@ -1,0 +1,21 @@
+1706387283125	geckodriver	INFO	Listening on 127.0.0.1:51139
+1706387283508	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/6x/q12zt_8s2214mm0_bzrkgr880000gn/T/rust_mozprofilefmxwLt"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706387283773	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1706387283975	Marionette	INFO	Listening on port 51148
+WebDriver BiDi listening on ws://127.0.0.1:51140
+Read port: 51148
+1706387284085	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:51140/devtools/browser/2187fe13-00c1-4a65-b121-abcc041c458b
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3784: TypeError: this._windows[aWindow.__SSi] is undefined
+JavaScript warning: https://www.saucedemo.com/static/js/2.9b02e67e.chunk.js, line 2: Script terminated by timeout at:
+get@https://www.saucedemo.com/static/js/2.9b02e67e.chunk.js:2:118280
+r/936/n/7429/value/<@https://www.saucedemo.com/static/js/2.9b02e67e.chunk.js:2:51414
+
+1706387314223	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1706387446714	Marionette	INFO	Stopped listening on port 51148
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
