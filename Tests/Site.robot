@@ -6,6 +6,9 @@ Library                  SeleniumLibrary
 #robot -v HEADLESS_MODE:False -v BROWSER:ff -d Results  Tests/Site.robot
 #robot -v HEADLESS_MODE:True -v BROWSER:headlessfirefox -d Results  Tests/Site.robot
 
+#Pabot
+# pabot --testlevelsplit --processes 16 --argumentfile argfile.txt Tests
+
 *** Variables ***
 ${BROWSER}                      chrome
 ${HEADLESS_MODE}                ${False}                     

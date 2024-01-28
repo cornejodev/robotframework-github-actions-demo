@@ -1,0 +1,7 @@
+datasources:d200e0209eb35d80c94859798a84a1ada7a14e13
+commandlineoptions:d1546aeaada31159e99b21ec59883c01c0f2c735
+suitesfrom:no-suites-from-option
+file:632dd3433eff55a37c54f20f7cfd3030e9c81421
+--test Tests.Site.Landing page should load
+--test Tests.Site.Login with credentials
+--test Tests.Site.Add item to cart
