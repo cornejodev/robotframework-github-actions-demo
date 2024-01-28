@@ -3,11 +3,12 @@ Documentation            Github Actions and Robot Framework demo
 Library                  SeleniumLibrary       
 
 #Run commands:
-#robot -v HEADLESS_MODE:False -v BROWSER:ff -d Results  Tests/Site.robot
-#robot -v HEADLESS_MODE:True -v BROWSER:headlessfirefox -d Results  Tests/Site.robot
+#robot -v HEADLESS_MODE:False -v BROWSER:ff -d results  tests/site.robot
+#robot -v HEADLESS_MODE:True -v BROWSER:headlessfirefox -d results  tests/site.robot
 
 #Pabot
-# pabot --testlevelsplit --processes 16 --argumentfile argfile.txt Tests
+# 2 processes per core - 8 cores equal 16 processes
+# pabot --testlevelsplit --processes 16 --argumentfile argfile.txt tests
 
 *** Variables ***
 ${BROWSER}                      chrome
