@@ -5,17 +5,15 @@ on:
     branches:
       - main
       - dev
-      - release/**
-      - hotfix/**
   pull_request:
     branches:
-      - main
-      - dev
+      - "*"
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Run tests
         uses: joonvena/robotframework-docker-action@v1.0
         with:
@@ -41,82 +39,17 @@ jobs:
         uses: joonvena/robotframework-reporter-action@v2.3
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-  merge_release_to_main:
-    if: ${{ github.event_name == 'pull_request' && startsWith(github.head_ref, 'release/') }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests and merge release to main
-        uses: joonvena/robotframework-docker-action@v1.0
-        with:
-          robot_tests_dir: tests
-      - name: Store test report and merge release to main
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: reports
-          path: reports
-      - name: Checkout release branch
-        uses: actions/checkout@v2
-        with:
-          ref: release
-      - name: Merge release to main
-        run: |
-          git checkout main
-          git merge --no-ff release -m "Merge release to main"
-          git push origin main
-
-  merge_hotfix_to_main:
-    if: ${{ github.event_name == 'pull_request' && startsWith(github.head_ref, 'hotfix/') }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests and merge hotfix to main
-        uses: joonvena/robotframework-docker-action@v1.0
-        with:
-          robot_tests_dir: tests
-      - name: Store test report and merge hotfix to main
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: reports
-          path: reports
-      - name: Checkout hotfix branch
-        uses: actions/checkout@v2
-      - name: Merge hotfix to main
-        run: |
-          git checkout main
-          git merge --no-ff ${{ github.ref }} -m "Merge hotfix to main"
-          git push origin main
-
-  create_dev_branch:
-    if: ${{ github.event_name == 'repository_dispatch' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create dev branch
-        run: |
-          git checkout -b dev
-          git push origin dev
-
-  handle_task_and_bugfix:
-    if: ${{ github.event_name == 'pull_request' && (startsWith(github.head_ref, 'task/') || startsWith(github.head_ref, 'bugfix/')) }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests and handle task/bugfix
-        uses: joonvena/robotframework-docker-action@v1.0
-        with:
-          robot_tests_dir: tests
-      - name: Store test report and handle task/bugfix
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: reports
-          path: reports
-      - name: Checkout branch
-        uses: actions/checkout@v2
-      - name: Merge branch to dev
-        run: |
-          git checkout dev
-          git merge --no-ff ${{ github.ref }} -m "Merge branch to dev"
-          git push origin dev
-
-  # Additional jobs for handling other branch types can be added here
+  # report:
+  # if: always()
+  #   needs: [test]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Download test report
+  #     uses: actions/download-artifact@v1
+  #     with:
+  #       name: reports
+  #   - name: Output report
+  #     uses: joonvena/robotframework-reporter-action@v2
+  # with:
+  #   gh_access_token: ${{ secrets.GITHUB_TOKEN }}
