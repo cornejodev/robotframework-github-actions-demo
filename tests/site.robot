@@ -9,7 +9,7 @@ Library             SeleniumLibrary
 # 2 processes per core - 8 cores equal 16 processes
 # pabot --testlevelsplit --processes 16 --argumentfile argfile.txt tests
 # pabot --verbose --testlevelsplit --processes 8 --argumentfile argfile.txt tests
-# ss
+# s
 
 
 *** Variables ***
