@@ -14,7 +14,6 @@ on:
 
 jobs:
   tests:
-    if: "github.event_name == 'pull_request' && (github.head_ref == 'main' || github.head_ref == 'dev')"
     runs-on: ubuntu-latest
     steps:
       - name: Run tests
