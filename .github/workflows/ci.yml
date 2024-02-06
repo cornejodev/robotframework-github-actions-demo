@@ -11,8 +11,18 @@ on:
       - dev
 
 jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install robotframework-tidy
+        run: |
+          pip install robotframework-tidy
+          ./format.sh
+
   tests:
     runs-on: ubuntu-latest
+    needs: [format]
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
