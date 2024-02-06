@@ -18,6 +18,8 @@ ${HEADLESS_MODE}        ${FALSE}
 ${LANDING_PAGE_URL}     https://www.saucedemo.com/
 ${INVENTORY_URL}        https://www.saucedemo.com/inventory.html
 
+${VALID_PASS_PASS}      ${EMPTY}
+
 # Credentials
 @{VALID_USERNAME}       standard_user
 ...                     locked_out_user
