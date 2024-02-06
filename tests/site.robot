@@ -19,7 +19,7 @@ ${LANDING_PAGE_URL}     https://www.saucedemo.com/
 ${INVENTORY_URL}        https://www.saucedemo.com/inventory.html
 
 # Credentials
-@{VALID_USERNAME}                           standard_user
+@{VALID_USERNAME}       standard_user
 ...                     locked_out_user
 ...                     problem_user
 ...                     performance_glitch_user
@@ -83,9 +83,3 @@ Add Item To Cart
     Wait Until Element Is Visible
     ...                     xpath=//button[@id='remove-sauce-labs-backpack']
     Close All Browsers
-
-logged out user should be able to search for a product
-    [Documentation]         Test product lookup      while      logged out
-    [Tags]     002        smoke         search 
-    
-   Log    hello

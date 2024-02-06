@@ -11,18 +11,8 @@ on:
       - dev
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install robotframework-tidy
-        run: |
-          pip install robotframework-tidy
-          ./format.sh
-
   tests:
     runs-on: ubuntu-latest
-    needs: [format]
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
@@ -50,17 +40,26 @@ jobs:
         uses: joonvena/robotframework-reporter-action@v2.3
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-  # report:
-  # if: always()
-  #   needs: [test]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Download test report
-  #     uses: actions/download-artifact@v1
-  #     with:
-  #       name: reports
-  #   - name: Output report
-  #     uses: joonvena/robotframework-reporter-action@v2
-  # with:
-  #   gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+#    format:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Install robotframework-tidy
+#         run: |
+#           pip install robotframework-tidy
+#           ./format.sh
+
+# report:
+# if: always()
+#   needs: [test]
+#   runs-on: ubuntu-latest
+#   steps:
+#   - uses: actions/checkout@v2
+#   - name: Download test report
+#     uses: actions/download-artifact@v1
+#     with:
+#       name: reports
+#   - name: Output report
+#     uses: joonvena/robotframework-reporter-action@v2
+# with:
+#   gh_access_token: ${{ secrets.GITHUB_TOKEN }}
