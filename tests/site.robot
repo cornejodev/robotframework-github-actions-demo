@@ -19,7 +19,7 @@ ${LANDING_PAGE_URL}     https://www.saucedemo.com/
 ${INVENTORY_URL}        https://www.saucedemo.com/inventory.html
 
 # Credentials
-@{VALID_USERNAME}       standard_user
+@{VALID_USERNAME}                           standard_user
 ...                     locked_out_user
 ...                     problem_user
 ...                     performance_glitch_user
