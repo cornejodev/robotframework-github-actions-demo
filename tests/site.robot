@@ -83,3 +83,11 @@ Add Item To Cart
     Wait Until Element Is Visible
     ...                     xpath=//button[@id='remove-sauce-labs-backpack']
     Close All Browsers
+
+Logged Out User Should Be Able To Search For A Product
+    [Documentation]    Test product lookup    while    logged out
+    [Tags]
+    ...    002
+    ...    smoke
+    ...    search
+    Log                     message
