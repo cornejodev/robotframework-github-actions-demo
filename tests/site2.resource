@@ -28,7 +28,7 @@ ${VALID_PASS_PASS}      ${EMPTY}
 ...                     error_user
 ...                     visual_user
 
-${VALID_PASSWORD}       secret_sauce
+${VALID_password}       secret_sauce
 
 # Locators
 ${USERNAME_TEXT_BOX}    xpath=//input[@id='user-name']
@@ -39,57 +39,54 @@ ${LOGIN_BUTTON}         xpath=//input[@id='login-button']
 *** Keywords ***
 Landing Page Should Load
     Log To Console
-    ...                     HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
+    ...    HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
     Open Browser
-    ...                     about:blank
-    ...                     ${BROWSER}
-    Go To                   ${LANDING_PAGE_URL}
+    ...    about:blank
+    ...    ${BROWSER}
+    Go To    ${LANDING_PAGE_URL}
     Close All Browsers
 
 Login With Credentials
     Log To Console
-    ...                     HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
+    ...    HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
 
     Open Browser
-    ...                     about:blank
-    ...                     ${BROWSER}
-    Go To                   ${LANDING_PAGE_URL}
+    ...    about:blank
+    ...    ${BROWSER}
+    Go To    ${LANDING_PAGE_URL}
     Input Text
-    ...                     ${USERNAME_TEXT_BOX}
-    ...                     ${VALID_USERNAME}[0]
+    ...    ${USERNAME_TEXT_BOX}
+    ...    ${VALID_USERNAME}[0]
     Input Text
-    ...                     ${PASSWORD_TEXT_BOX}
-    ...                     ${VALID_PASSWORD}
-    Click Element           ${LOGIN_BUTTON}
-    Location Should Be      ${INVENTORY_URL}
+    ...    ${PASSWORD_TEXT_BOX}
+    ...    ${VALID_PASSWORD}
+    Click Element    ${LOGIN_BUTTON}
+    Location Should Be    ${INVENTORY_URL}
     Close All Browsers
 
 Add Item To Cart
     Log To Console
-    ...                     HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
+    ...    HEADLESS_MODE:${HEADLESS_MODE} BROWSER:${BROWSER}
 
     Open Browser
-    ...                     about:blank
-    ...                     ${BROWSER}
-    Go To                   ${LANDING_PAGE_URL}
+    ...    about:blank
+    ...    ${BROWSER}
+    Go To    ${LANDING_PAGE_URL}
     Input Text
-    ...                     ${USERNAME_TEXT_BOX}
-    ...                     ${VALID_USERNAME}[0]
+    ...    ${USERNAME_TEXT_BOX}
+    ...    ${VALID_USERNAME}[0]
     Input Text
-    ...                     ${PASSWORD_TEXT_BOX}
-    ...                     ${VALID_PASSWORD}
-    Click Element           ${LOGIN_BUTTON}
-    Location Should Be      ${INVENTORY_URL}
+    ...    ${PASSWORD_TEXT_BOX}
+    ...    ${VALID_PASSWORD}
+    Click Element    ${LOGIN_BUTTON}
+    Location Should Be    ${INVENTORY_URL}
     Click Element
-    ...                     xpath=//button[@id='add-to-cart-sauce-labs-backpack']
+    ...    xpath=//button[@id='add-to-cart-sauce-labs-backpack']
     Wait Until Element Is Visible
-    ...                     xpath=//button[@id='remove-sauce-labs-backpack']
+    ...    xpath=//button[@id='remove-sauce-labs-backpack']
     Close All Browsers
 
 Logged Out User Should Be Able To Search For A Product
     [Documentation]    Test product lookup    while    logged out
-    [Tags]
-    ...    002
-    ...    smoke
-    ...    search
-    Log                     message
+    [Tags]    002    smoke    search
+    Log    message
