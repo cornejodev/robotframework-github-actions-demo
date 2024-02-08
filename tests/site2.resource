@@ -28,7 +28,7 @@ ${VALID_PASS_PASS}      ${EMPTY}
 ...                     error_user
 ...                     visual_user
 
-${VALID_password}       secret_sauce
+${VaLID_password}       secret_sauce
 
 # Locators
 ${USERNAME_TEXT_BOX}    xpath=//input[@id='user-name']
