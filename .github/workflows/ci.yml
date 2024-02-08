@@ -29,7 +29,7 @@ jobs:
 
       - name: Run formatting script
         run: |
-          chmod +x format_project.sh
+          chmod +x format_codebase.sh
           ./format_codebase.sh
 
       - name: Commit changes
@@ -40,6 +40,7 @@ jobs:
           git diff --staged --quiet || git commit -m "Apply robotidy formatting"
           git push origin HEAD:${{ github.head_ref }}
   tests:
+    needs: [format-and-commit]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
