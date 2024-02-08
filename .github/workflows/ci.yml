@@ -25,7 +25,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install robotidy
-        run: pip install robotidy
+        run: pip install robotframework-tidy
 
       - name: Run formatting script
         run: |
